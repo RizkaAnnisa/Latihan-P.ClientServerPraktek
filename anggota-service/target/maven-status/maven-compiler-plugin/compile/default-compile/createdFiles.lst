@@ -1,0 +1,7 @@
+com\rizka\anggota\service\controller\AnggotaController.class
+com\rizka\anggota\service\service\AnggotaService.class
+com\rizka\anggota\service\entity\Anggota.class
+com\rizka\anggota\service\AnggotaServiceApplication.class
+com\rizka\anggota\service\repository\AnggotaRepository$Anggota.class
+com\rizka\anggota\service\repository\AnggotaRepository.class
+com\rizka\anggota\service\service\AnggotaService$findAnggotaById.class
