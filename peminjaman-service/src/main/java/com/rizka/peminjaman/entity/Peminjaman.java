@@ -4,7 +4,6 @@
  */
 package com.rizka.peminjaman.entity;
 
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,14 +18,14 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class Peminjaman implements Serializable {
+@NoArgsConstructor
+public class Peminjaman {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long peminjamanId;
-    private Long anggotaId;
     private Long bukuId;
-    private String tglpinjam;
-    private String tglkembali;
+    private Long anggotaId;
+    private String tglPinjam;
+    private String tglKembali;
 }

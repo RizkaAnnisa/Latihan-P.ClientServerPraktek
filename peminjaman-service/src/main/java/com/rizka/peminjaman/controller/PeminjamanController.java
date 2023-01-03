@@ -4,6 +4,8 @@
  */
 package com.rizka.peminjaman.controller;
 
+
+import com.rizka.peminjaman.VO.ResponseTemplateVO;
 import com.rizka.peminjaman.entity.Peminjaman;
 import com.rizka.peminjaman.service.PeminjamanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +32,8 @@ public class PeminjamanController {
     }
     
     @GetMapping("{id}")
-    public Object getPeminjaman(@PathVariable("id") Long peminjamanId){
-        return peminjamanService.getPeminjaman(peminjamanId);
+    public ResponseTemplateVO getPeminjaman(@PathVariable("id") Long peminjamanId){
+     return peminjamanService.getPeminjaman(peminjamanId);
     }
 }
 

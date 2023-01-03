@@ -17,3 +17,5 @@ public interface PeminjamanRepository extends JpaRepository<Peminjaman, Long> {
     public Peminjaman findByPeminjamanId(Long peminjaman);
     
 }
+
+

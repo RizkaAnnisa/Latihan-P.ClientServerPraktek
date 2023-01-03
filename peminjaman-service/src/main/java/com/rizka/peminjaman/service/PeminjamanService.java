@@ -5,6 +5,7 @@
 package com.rizka.peminjaman.service;
 
 import com.rizka.peminjaman.VO.Anggota;
+import com.rizka.peminjaman.VO.Buku;
 import com.rizka.peminjaman.VO.ResponseTemplateVO;
 import com.rizka.peminjaman.entity.Peminjaman;
 import com.rizka.peminjaman.repository.PeminjamanRepository;
@@ -24,18 +25,20 @@ public class PeminjamanService {
     @Autowired
     private RestTemplate restTemplate;
     
-    public Peminjaman savePeminjaman(Peminjaman peminjaman) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Peminjaman savePeminjaman(Peminjaman peminjaman){
+        return peminjamanRepository.save(peminjaman);
     }
     
     public ResponseTemplateVO getPeminjaman(Long peminjamanId){
         ResponseTemplateVO vo = new ResponseTemplateVO();
         Peminjaman peminjaman = peminjamanRepository.findByPeminjamanId(peminjamanId);
-        
-        Anggota anggota = restTemplate.getForObject("http://localhost:9001/anggota/"+peminjaman.getAnggotaId(), Anggota.class);
+        Anggota anggota = restTemplate.getForObject("http://localhost:8100/anggota/" 
+              + peminjaman.getAnggotaId(), Anggota.class);
+        Buku buku = restTemplate.getForObject("http://localhost:8200/buku/" 
+                + peminjaman.getBukuId(), Buku.class);
         vo.setPeminjaman(peminjaman);
         vo.setAnggota(anggota);
+        vo.setBuku(buku);
         return vo;
-                
     }
 }
